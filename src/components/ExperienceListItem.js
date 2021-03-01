@@ -1,31 +1,56 @@
 import React from "react";
 import styled from "styled-components";
+import { FaCalendarAlt } from "react-icons/fa";
 
-const ExperienceListStyles = styled.div`
-  padding: 1em;
-  margin: 0.5em auto;
-  border: 2px solid var(--black);
-  border-radius: 3rem;
+const ExperienceListStyles = styled.figure`
+  border-radius: 10px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  max-width: 700px;
+  min-width: 300px;
+  overflow: hidden;
 `;
+
 const HeaderStyles = styled.div`
+  background-color: #2a265f;
   display: flex;
+  padding: 20px;
   justify-content: space-between;
   align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  color: var(--white);
+  h3 {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding-bottom: 5px;
+  }
+  span {
+    padding: 10px;
+    font-size: 1.5rem;
+  }
 `;
+
 const DescriptionStyles = styled.div`
   display: flex;
   font-size: 1.7rem;
   flex-direction: column;
   align-items: center;
+  background-color: white;
+  padding: 10px;
+  p {
+    text-align: justify;
+  }
 `;
 
 const SkillsList = styled.ul`
   margin-top: 0;
   padding: 0;
   list-style-type: none;
-  width: 100%;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
 `;
 
 export default function ExperienceListItem({ experience }) {
@@ -37,14 +62,15 @@ export default function ExperienceListItem({ experience }) {
           <h3>{experience.companyName}</h3>
           <em>{experience.position}</em>
         </div>
-        <span>
-          {experience.from}...{experience.active ? "Now" : experience.to}
-        </span>
+        <div>
+          <FaCalendarAlt />
+          <span>
+            {experience.from}...{experience.active ? "Present" : experience.to}
+          </span>
+        </div>
       </HeaderStyles>
       <DescriptionStyles>
-        <div>
-          <p>{experience.description}</p>
-        </div>
+        <p>{experience.description}</p>
         <SkillsList>
           {experience.skills.map((skill, index) => {
             return <li key={`${skill}_${index}`}>{skill}</li>;

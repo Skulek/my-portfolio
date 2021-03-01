@@ -5,43 +5,56 @@ import ExperienceList from "../components/ExperienceList";
 import Img from "gatsby-image";
 
 const MainBox = styled.div`
-  width: 100%;
   margin: 1rem;
   display: flex;
   align-items: center;
+  flex-direction: column;
+  animation: slide-in-left 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  @keyframes slide-in-left {
+    0% {
+      -webkit-transform: translateX(-1000px);
+      transform: translateX(-1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
 `;
 
 const DetailsBox = styled.div`
-  flex: 1;
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  p {
-    text-align: center;
+  width: 100%;
+  align-items: center;
+  .gatsby-image-wrapper {
+    margin-bottom: 1em;
+    border-radius: 100px;
   }
 `;
 const OverviewBox = styled.div`
-  flex: 3;
-  padding: 1rem;
-  p {
-    text-align: justify;
+  width: 50%;
+  margin: 0 auto;
+  text-align: justify;
+  @media (max-width: 900px) {
+    width: 100%;
   }
 `;
 
 export default function Home({ data }) {
   const myData = data.myPortFolio;
-  console.log(myData);
   return (
     <>
       <MainBox>
         <DetailsBox>
-          <div>
-            <Img fluid={myData.image.asset.fluid} alt={myData.name} />
-          </div>
-          <p>
+          <Img fixed={myData.image.asset.fixed} alt={myData.name} />
+          <h2>
             {myData.name} {myData.surname}
-          </p>
+          </h2>
         </DetailsBox>
         <OverviewBox>
           <p>{myData.overview}</p>

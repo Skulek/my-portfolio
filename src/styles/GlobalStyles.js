@@ -6,16 +6,20 @@ const GlobalStyles = createGlobalStyle`
     --black: #2E2E2E;
     --yellow: #ffc600;
     --white: #fff;
-    --grey: #efefef;
+    --grey: #eee;
   }
 
 
   html {
     font-size: 62.5%;
+    box-sizing:border-box;
+    scrollbar-width: thin;
+    scrollbar-color: var(--red) var(--white);
   }
 
   body {
     font-size: 2rem;
+    color: var(--black);
   }
 
   fieldset {
@@ -32,10 +36,7 @@ const GlobalStyles = createGlobalStyle`
   body::-webkit-scrollbar {
     width: 12px;
   }
-  html {
-    scrollbar-width: thin;
-    scrollbar-color: var(--red) var(--white);
-  }
+
   body::-webkit-scrollbar-track {
     background: var(--white);
   }

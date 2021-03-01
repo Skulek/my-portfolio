@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const Navigation = styled.nav`
   width: 100%;
-
+  padding: 2rem;
   ul {
     margin: 0;
     padding: 0;
