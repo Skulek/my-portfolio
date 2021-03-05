@@ -4,15 +4,16 @@ import { FaCalendarAlt } from "react-icons/fa";
 
 const ExperienceListStyles = styled.figure`
   border-radius: 10px;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
   position: relative;
-  max-width: 700px;
+  max-width: 450px;
   min-width: 300px;
+  min-height: 300px;
   overflow: hidden;
 `;
 
 const HeaderStyles = styled.div`
-  background-color: #2a265f;
+  background-color: var(--blue);
   display: flex;
   padding: 20px;
   justify-content: space-between;
@@ -38,23 +39,23 @@ const DescriptionStyles = styled.div`
   align-items: center;
   background-color: white;
   padding: 10px;
-  p {
-    text-align: justify;
-  }
 `;
 
 const SkillsList = styled.ul`
   margin-top: 0;
   padding: 0;
   list-style-type: none;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(
+    ${props => props.colsNumber},
+    minmax(100px, 1fr)
+  );
   width: 100%;
+  justify-items: center;
 `;
 
 export default function ExperienceListItem({ experience }) {
-  console.log(experience);
+  const numberOfColumns = experience.skills.length / 3;
   return (
     <ExperienceListStyles>
       <HeaderStyles>
@@ -71,7 +72,7 @@ export default function ExperienceListItem({ experience }) {
       </HeaderStyles>
       <DescriptionStyles>
         <p>{experience.description}</p>
-        <SkillsList>
+        <SkillsList colsNumber={numberOfColumns}>
           {experience.skills.map((skill, index) => {
             return <li key={`${skill}_${index}`}>{skill}</li>;
           })}

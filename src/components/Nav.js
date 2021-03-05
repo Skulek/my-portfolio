@@ -1,6 +1,7 @@
-import { Link, useStaticQuery } from "gatsby";
+import { Link, useStaticQuery, graphql } from "gatsby";
 import React from "react";
 import styled from "styled-components";
+import scrollTo from "gatsby-plugin-smoothscroll";
 
 const Navigation = styled.nav`
   width: 100%;
@@ -14,6 +15,18 @@ const Navigation = styled.nav`
     text-align: center;
     list-style: none;
     align-items: center;
+    button {
+      border: 0;
+      padding: 0;
+      text-transform: none;
+      background-color: inherit;
+      text-decoration: underline;
+      text-decoration-color: var(--blue);
+      cursor: pointer;
+      &:focus {
+        outline: none;
+      }
+    }
   }
 `;
 
@@ -32,7 +45,9 @@ export default function Nav(props) {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/">Experience</Link>
+          <button onClick={() => scrollTo("#experience-list")}>
+            Experience
+          </button>
         </li>
         <li>
           <a href={`mailto:${data.sanityPortfolio.email}`}>Contact</a>

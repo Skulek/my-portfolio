@@ -7,6 +7,7 @@ const GlobalStyles = createGlobalStyle`
     --yellow: #ffc600;
     --white: #fff;
     --grey: #eee;
+    --blue: #2a265f;
   }
 
 
@@ -14,7 +15,7 @@ const GlobalStyles = createGlobalStyle`
     font-size: 62.5%;
     box-sizing:border-box;
     scrollbar-width: thin;
-    scrollbar-color: var(--red) var(--white);
+    scrollbar-color: var(--blue) var(--white);
   }
 
   body {
@@ -34,14 +35,14 @@ const GlobalStyles = createGlobalStyle`
 
   /* Scrollbar Styles */
   body::-webkit-scrollbar {
-    width: 12px;
+    width: 10px;
   }
 
   body::-webkit-scrollbar-track {
     background: var(--white);
   }
   body::-webkit-scrollbar-thumb {
-    background-color: var(--red) ;
+    background-color: var(--blue) ;
     border-radius: 6px;
     border: 3px solid var(--white);
   }

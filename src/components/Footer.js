@@ -1,13 +1,15 @@
-import { useStaticQuery } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 import React from "react";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import styled from "styled-components";
 
 const FooterStyles = styled.footer`
   display: flex;
-  span,
+  justify-content: center;
+  width: 100%;
+  align-items: center;
   a {
-    padding: 1rem;
+    padding-left: 0.3em;
   }
 `;
 
@@ -23,7 +25,7 @@ export default function Footer() {
   console.log(data);
   return (
     <FooterStyles>
-      <span>&copy; Piotr Dziubek {new Date().getFullYear()}</span>
+      <p>&copy; Piotr Dziubek {new Date().getFullYear()}</p>
       <a href={data.sanityPortfolio.linkedinPage}>
         <FaLinkedinIn />
       </a>
