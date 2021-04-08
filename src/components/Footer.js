@@ -1,7 +1,8 @@
 import { useStaticQuery, graphql } from "gatsby";
 import React from "react";
-import { FaLinkedinIn, FaGithub } from "react-icons/fa";
+import { FaLinkedinIn, FaGithub, FaRegFilePdf } from "react-icons/fa";
 import styled from "styled-components";
+import document from "../../static/CV.pdf";
 
 const FooterStyles = styled.footer`
   display: flex;
@@ -31,6 +32,9 @@ export default function Footer() {
       </a>
       <a href={data.sanityPortfolio.githubPage}>
         <FaGithub />
+      </a>
+      <a href={document} download>
+        <FaRegFilePdf />
       </a>
     </FooterStyles>
   );

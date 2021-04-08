@@ -3,19 +3,20 @@ import styled from "styled-components";
 import { FaCalendarAlt } from "react-icons/fa";
 
 const ExperienceListStyles = styled.figure`
-  border-radius: 10px;
+  border-radius: 30px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
   position: relative;
   max-width: 450px;
-  min-width: 300px;
+  min-width: 250px;
   min-height: 300px;
   overflow: hidden;
+  margin-bottom: 15px;
 `;
 
 const HeaderStyles = styled.div`
   background-color: var(--blue);
   display: flex;
-  padding: 20px;
+  padding: 15px;
   justify-content: space-between;
   align-items: center;
   align-content: center;
@@ -41,7 +42,7 @@ const DescriptionStyles = styled.div`
   padding: 10px;
 `;
 
-const SkillsList = styled.ul`
+const SkillsListStyles = styled.ul`
   margin-top: 0;
   padding: 0;
   list-style-type: none;
@@ -54,6 +55,20 @@ const SkillsList = styled.ul`
   justify-items: center;
 `;
 
+const DateContainerStyles = styled.div`
+  display: flex;
+  align-items: center;
+  align-self: center;
+  gap: 5px;
+`;
+const DateStyles = styled.div`
+  display: flex;
+  flex-direction: column;
+  span {
+    padding: 2px;
+  }
+`;
+
 export default function ExperienceListItem({ experience }) {
   const numberOfColumns = experience.skills.length / 3;
   return (
@@ -63,20 +78,21 @@ export default function ExperienceListItem({ experience }) {
           <h3>{experience.companyName}</h3>
           <em>{experience.position}</em>
         </div>
-        <div>
-          <FaCalendarAlt />
-          <span>
-            {experience.from}...{experience.active ? "Present" : experience.to}
-          </span>
-        </div>
+        <DateContainerStyles>
+          <FaCalendarAlt size={40} />
+          <DateStyles>
+            <span>{experience.from}</span>{" "}
+            <span>{experience.active ? "Present" : experience.to}</span>
+          </DateStyles>
+        </DateContainerStyles>
       </HeaderStyles>
       <DescriptionStyles>
         <p>{experience.description}</p>
-        <SkillsList colsNumber={numberOfColumns}>
+        <SkillsListStyles colsNumber={numberOfColumns}>
           {experience.skills.map((skill, index) => {
             return <li key={`${skill}_${index}`}>{skill}</li>;
           })}
-        </SkillsList>
+        </SkillsListStyles>
       </DescriptionStyles>
     </ExperienceListStyles>
   );

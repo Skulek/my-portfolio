@@ -3,6 +3,8 @@ import React from "react";
 import styled from "styled-components";
 import ExperienceList from "../components/ExperienceList";
 import Img from "gatsby-image";
+import HobbiesList from "../components/HobbiesList";
+import { Helmet } from "react-helmet";
 
 const MainBox = styled.div`
   margin: 1rem;
@@ -49,6 +51,11 @@ export default function Home({ data }) {
   const myData = data.myPortFolio;
   return (
     <>
+      <Helmet>
+        <title>
+          Personal site - {myData.name} {myData.surname}
+        </title>
+      </Helmet>
       <MainBox>
         <DetailsBox>
           <Img fixed={myData.image.asset.fixed} alt={myData.name} />

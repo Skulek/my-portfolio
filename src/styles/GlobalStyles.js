@@ -23,6 +23,10 @@ const GlobalStyles = createGlobalStyle`
     color: var(--black);
   }
 
+  figure{
+    margin:0;
+  }
+
   fieldset {
     border-color: rgba(0,0,0,0.1);
     border-width: 1px;

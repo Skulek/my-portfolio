@@ -24,6 +24,7 @@ const Typography = createGlobalStyle`
     /* Chrome renders this weird with this font, so we turn it off */
     text-decoration-skip-ink: none;
   }
+  
   mark, .mark {
     background: var(--yellow);
     padding: 0 2px 2px 2px;
